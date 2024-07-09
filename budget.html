@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: greenyellow;
+            text-align: center;
+            text-transform: capitalize;
+        }
+       
+        input {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 30%;
+            height: 20px;
+        }
+        button {
+    background-color: white;
+    padding: 15px;
+    width: 100px;
+    margin-bottom: 20px;
+    border: 2px solid black;
+    
+}
+       
+    </style>
+</head>
+<body>
+    <div>
+        <header id="header">
+            <ul>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="budget.html">Budget</a></li>
+              <li><a href="track.html">Track</a></li>
+              <li><a href="reminder.html">Reminder</a></li>
+            </ul>
+          </header>
+          <br>
+        <label>Enter your money amount</label><br>
+        <input class="money" type="number" placeholder="$$$">
+        <br>
+        <label>Enter your expenses amount</label><br>
+        <input class="expenses" type="number" placeholder="$$$">
+        <br>
+        <button class="click">Click</button>
+        <br>
+        <label>Your budget is</label><br>
+        <input class="budget" type="text" placeholder="$$$" readonly>
+    </div>
+    <script>
+        document.querySelector('.click').addEventListener('click', function() {
+            let money = parseFloat(document.querySelector('.money').value);
+            let expenses = parseFloat(document.querySelector('.expenses').value);
+            let budget = money - expenses;
+            document.querySelector('.budget').value = `$${budget}`;
+        });
+    </script>
+    
+</body>
+</html>

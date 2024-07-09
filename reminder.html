@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminder</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        h2 {
+            margin-top: 10%;
+        }
+        button {
+            background-color: white;
+            padding: 25px;
+            border: 2px solid black;
+            border-radius: 50%;
+        }
+        li {
+            border: 2px solid black;
+            background-color: white;
+            margin-left: 25%;
+            margin-right: 25%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="budget.html">Budget</a></li>
+          <li><a href="track.html">Track</a></li>
+          <li><a href="reminder.html">Reminder</a></li>
+        </ul>
+      </header>
+      <br>
+    <h2>Add a Reminder</h2>
+    <br>
+    <button id="addButton">Add</button>
+    <br>
+    <ol id="reminderList">
+        
+    </ol>
+
+    <script>
+        document.getElementById('addButton').addEventListener('click', () => {
+            const list = document.getElementById('reminderList');
+            const bellName = prompt('Enter the bell name:');
+            let date;
+            while (true) {
+                date = parseInt(prompt('Enter a date of month (1 - 31):'));
+                if (!isNaN(date) && date >= 1 && date <= 31) {
+                    break;
+                } else {
+                    alert("Please enter a valid date between 1 and 31.");
+                }
+            }
+            if (bellName) {
+                const newItem = document.createElement('li');
+                newItem.textContent = `${bellName} ${date}`;
+                list.appendChild(newItem);
+            }
+            const today = new Date().getDate()
+            if(date == today){
+                alert("it's time to pay the fine!!! ")
+            }
+        });
+    </script>
+
+    <!-- done -->
+</body>
+</html>
